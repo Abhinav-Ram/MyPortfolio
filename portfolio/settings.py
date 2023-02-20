@@ -13,7 +13,7 @@ SECRET_KEY = os.environ['portfolio']
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'portfolio-project-master.abhinavram1.repl.co',
+    'myportfolio.abhinavram1.repl.co',
 ]
 
 # Application definition
