@@ -2,55 +2,161 @@
 <html lang = "en">
 {% load static %}
   <head>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/chevron-down.css' rel='stylesheet'>
+    <style id="NavAndDropdown">
+      .navbar {
+        border-radius: 25px;
+        background-color: black;
+  border: 2px solid darkblue;
+    height: 50px;
+  width: 100%;
+    overflow: visible;
+    position: sticky;
+}
+      .navbar>a {
+        
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    height: 100%;
+}
+.navbar>a.left {
+    float: left;
+}
+      .navbar>a:hover {
+        border-radius: 25px;
+    background-color: #ddd;
+      color: black;
+   
+}
+      .navbar>a:active {
+    background-color: darkblue;
+    color: white;
+}
+  .dropdown {
+    float: right;
+}
+      .dropdown .dropbtn {
+        border-radius: 25px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+      .dropdown:hover .dropbtn {
+    background-color: #ddd;
+    height: 100%;
+    color: black;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+      .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+      .dropdown-content a:hover {
+        border-radius: 25px;
+    background-color: #ddd;
+}
+
+.dropdown-content a:active {
+    background-color: darkblue;
+    color: white;
+}
+.dropdown:hover .dropdown-content {
+  
+  border-radius: 25px;
+    display: block;
+}
+    </style>
+    <style id="Other">
+      * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white
+}
+      /* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background-color: black;
+}
+
+.header h1 {
+  font-size: 48px;
+  color: lightblue;
+  -webkit-text-stroke: 2px darkblue;
+}
+      .content{
+        padding: 20px;
+      }
+      .footer {
+  width: 100%;
+  height: 50px;
+  color: white;
+  text-align: center;
+  z-index: 0;
+}
+    </style>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v4.0.1">
     <title>Abhinav Ram</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
-
-    <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   
 
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'home' %}">Abhinav Ram</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ml-auto">
-      <div class=" nav-item nav-link dropdown show">
-  	<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Docs</a>
-
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <a class="dropdown-item" href="{% static 'document.pdf' %}">Class XII Project</a>
-      <a class="dropdown-item" href="{% static 'sem4proposal.pdf' %}">Sem 4 Mini Project</a>
-      <a class="dropdown-item" href="{% static 'sanjaya.pdf' %}">IFP</a>
-  </div>
-</div>
-       <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-       <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
-      </div>
-    </div>
- </nav>
+    <header class="header">
+      <h1>MyPortfolio</h1>
+      <nav class="navbar">
+		<a class="left"  <a href="{% url 'home' %}">Abhinav Ram</a>
+		<a href="{% static 'resume.pdf' %}">Resume</a>
+       <a href="{% url 'allblogs' %}">Blog</a>
+		<div class="dropdown">
+			<button class="dropbtn">Docs
+				<i class="gg-chevron-down" style="display:inline;"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="{% static 'document.pdf' %}">Class XII Project</a>
+		<a href="{% static 'sem4proposal.pdf' %}">Sem 4 Mini Project</a>
+		<a href="{% static 'sanjaya.pdf' %}">IFP</a>
+			</div>
+		</div>
+	</nav>
+    </header>
+      
+     
 </header>
+    <div class="content">
 {% block content %}
 
 {% endblock %}
-
-<footer class="text-muted">
-  <div class="container text-center">
+</div>
+<footer class="footer">
      <p>Copyright. Abhinav Ram {% now "Y" %}</p>
-  </div>
+
 </footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script>
+</script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 { pkgs }: {
   deps = [
+    pkgs.php80Packages.composer
     pkgs.python38Full
   ];
   env = {
