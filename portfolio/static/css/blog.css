@@ -1,0 +1,17 @@
+.blog {
+  display: flex;
+  margin: 10px;
+  border:2px solid white;
+  border-radius: 15px;
+}
+
+.blog > div {
+  margin: 10px;
+  width: 25%;
+  
+}
+
+.blog > div img {
+  width: 90%;
+  
+}
